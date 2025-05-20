@@ -3,7 +3,7 @@
         <div class="absolute top-1 left-5 text-[12px] select-none uppercase">
             {{ props.title }}
         </div>
-        <input
+        <textarea
         v-bind="attrs"
         :type="type"
         :placeholder="placeholder"
@@ -12,7 +12,7 @@
         @focus="$emit('focus', $event)"
         @blur="$emit('blur', $event)"
         @change="$emit('change', $event)"
-        class="pt-5 pb-1 px-4 border-2 border-solid border-[rgba(0,0,0,0)] rounded-md bg-gray hover:border-black transition-all"
+        class="pt-5 pb-1 h-[200px] px-4 border-2 border-solid border-[rgba(0,0,0,0)] rounded-md bg-gray hover:border-black transition-all"
         />
     </div>
 

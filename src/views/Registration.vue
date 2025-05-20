@@ -11,15 +11,15 @@ const name = ref()
 const whoAmI = ref<'employee' | 'employer'>('employee')
 </script>
 <template>
-    <div class="min-h-[100vh] w-full flex flex-col items-center justify-center gap-9">
-        <div class="text-4xl font-bold">
+    <div class="w-full flex flex-col items-center justify-center gap-9 sm:mt-[40px]">
+        <div class="text-4xl font-bold sm:text-2xl">
             Welcome to the site
         </div>
-        <div class="w-[400px] flex flex-col gap-2">
+        <div class="w-[400px] flex flex-col gap-2 sm:w-full">
             <BaseInput v-model="login" type="text" class="w-full" title="EMAIL" />
             <BaseInput v-model="password" type="text" class="w-full" title="PASSWORD" />
             <BaseInput v-model="name" type="text" class="w-full" title="NAME" />
-            <div class="flex gap-2">
+            <div class="flex gap-2 pt-2">
                 <div 
                     @click="whoAmI = 'employer'"
                     class="p-2 cursor-pointer bg-red border-solid border-accent border-2 rounded-md font-bold text-sm w-1/2 text-center"

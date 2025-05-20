@@ -2,7 +2,8 @@
 import { defineProps, defineEmits, useAttrs } from 'vue'
 
 const props = defineProps<{
-  type?: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit' | 'reset',
+  isDisabled?:boolean
 }>()
 
 const emit = defineEmits<{
@@ -17,7 +18,9 @@ const attrs = useAttrs()
       v-bind="attrs"
       :type="type"
       @click="$emit('click', $event)"
-      class="p-4 rounded-md bg-accent text-white  hover:opacity-[0.8] transition-all font-bold"
+      class="p-4 rounded-md transition-all font-bold"
+      :disabled="isDisabled"
+      :class="isDisabled ? 'bg-gray text-darkGray' : 'bg-accent text-white hover:opacity-[0.8]'"
     >
       <slot></slot>
     </button>

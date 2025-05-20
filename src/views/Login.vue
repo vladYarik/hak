@@ -3,21 +3,22 @@ import { ref } from 'vue';
 import BaseInput from '../components/UI/BaseInput.vue';
 import BaseButton from '../components/UI/BaseButton.vue';
 import { useRouter } from 'vue-router';
-
+import useAuthStore from '../store/authStore';
+const authStore = useAuthStore()
 const login = ref()
 const password = ref()
 const router = useRouter()
 </script>
 <template>
-    <div class="min-h-[100vh] w-full flex flex-col items-center justify-center gap-9">
-        <div class="text-4xl font-bold">
+    <div class="w-full flex flex-col items-center justify-center gap-9 sm:mt-[40px]">
+        <div class="text-4xl font-bold sm:text-2xl">
             Welcome to the site
         </div>
-        <div class="w-[400px] flex flex-col gap-2">
+        <div class="w-[400px] flex flex-col gap-2 sm:w-full ">
             <BaseInput v-model="login" type="text" class="w-full" title="EMAIL" />
             <BaseInput v-model="password" type="text" class="w-full" title="PASSWORD" />
             <div class="pt-2 flex-1 flex w-full">
-                <BaseButton class="w-full bg-black">
+                <BaseButton @click="authStore.login({login,password})" class="w-full bg-black">
                     Войти
                 </BaseButton>
             </div>

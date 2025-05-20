@@ -6,7 +6,9 @@ import { watch } from "vue"
 import Registration from "../views/Registration.vue"
 import Jobs from "../views/Jobs.vue"
 import Queistionnair from "../views/Queistionnair.vue"
-
+import Job from "../views/Job.vue"
+import CreateJob from '../views/CreateJob.vue'
+import AiQuestionnair from "../views/AiQuestionnair.vue"
 
 
 
@@ -32,6 +34,24 @@ const routes:RouteRecordRaw[] = [
         path:'/jobs',
         name:'Jobs',
         component:Jobs,
+        meta:{requiresAuth:true}
+    },
+    {
+        path:'/aiquestionnaire',
+        name:'AI',
+        component:AiQuestionnair,
+        meta:{requiresAuth:true}
+    },
+    {
+        path:'/jobs/create',
+        name:'CreateJob',
+        component:CreateJob,
+        meta:{requiresAuth:true}
+    },
+    {
+        path:'/jobs/:id',
+        name:'Job',
+        component:Job,
         meta:{requiresAuth:true}
     },
     {
